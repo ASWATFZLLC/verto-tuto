@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Verto - Demo Application</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Demo Application using Verto jQuery lib.">
+    <meta name="author" content="Your name here!">
+
+    <link href="style.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <div class="setup">
+      <div>
+        <label>hostname</label>
+        <input id="hostname" type="text">
+      </div>
+      <div>
+        <label>socketUrl</label>
+        <input id="socketUrl" type="text">
+      </div>
+      <div>
+        <label>position</label>
+        <input id="position" type="text">
+      </div>
+      <div>
+        <label>password</label>
+        <input id="password" type="text">
+      </div>
+
+      <button id="connect">Connect to freeSwitch</button>
+    </div>
+
+
+    <div class="container">
+      <h1>Verto - Demo Application</h1>
+      <div>
+        <label>Compose a number</label>
+        <input id="dialedNumber" type="text">
+      </div>
+
+      <button id="make-call">Make a call</button>
+      <button id="hang-up-call">Hang up call</button>
+
+      <div><button onclick="mute()">Mute</button></div>
+      <div><button onclick="unmute()">Unmute</button></div>
+      <div><button onclick="hold()">Hold</button></div>
+      <div><button onclick="unhold()">Unhold</button></div>
+      <div>
+        <input id="transfering" type="text">
+        <button onclick="transfer()"></button>
+      </div>
+      <video class="hide" id="webcam" autoplay="autoplay" style="width:100%; height:100%; object-fit:inherit;"></video>
+    </div> <!-- /container -->
+    <div id="is-ringing" style="display: none;">
+      <h3 style="text-decoration: blink;">is ringing</h3>
+      <button onclick="answerCall()">Answer call</button>
+    </div>
+    <div class="container">
+      <h1>DIAL</h1>
+        <div>
+          <button onclick="sendDTMF('1')">1</button><button onclick="sendDTMF('2')">2</button><button onclick="sendDTMF('3')">3</button>
+        </div>
+        <div>
+          <button onclick="sendDTMF('4')">4</button><button onclick="sendDTMF('5')">5</button><button onclick="sendDTMF('6')">6</button>
+        </div>
+        <div>
+          <button onclick="sendDTMF('7')">7</button><button onclick="sendDTMF('8')">8</button><button onclick="sendDTMF('9')">9</button>
+        </div>
+        <div>
+          <button onclick="sendDTMF('*')">*</button><button onclick="sendDTMF('0')">0</button><button onclick="sendDTMF('#')">#</button>
+        </div>
+    </div>
+
+    <!-- Verto dependencies -->
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="node_modules/jquery-json/dist/jquery.json.min.js"></script>
+
+    <!-- Verto library -->
+    <script src="node_modules/verto/src/jquery.verto.js"></script>
+    <script src="node_modules/verto/src/jquery.FSRTC.js"></script>
+    <script src="node_modules/verto/src/jquery.jsonrpcclient.js"></script>
+
+    <!-- Our project's files -->
+    <script src="main.js"></script>
+    <script src="eventListener.js"></script>eventListener.js
+  </body>
+</html>
