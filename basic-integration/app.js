@@ -17,8 +17,8 @@ function connectToFreeswitch() {
       login: position + '@' + hostname,
       passwd: password,
       socketUrl: socketURL,
-      ringFile: 'ringtone_coke.mp3',
-      tag: 'webcam',
+      ringFile: 'ringtone.mp3',
+      tag: 'positionDevice',
       deviceParams: {
         useMic: true,
         useSpeak: true
