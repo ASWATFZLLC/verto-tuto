@@ -9,9 +9,6 @@ You can use only the verto lib, or integrate it with Ziwo API to retreive datas 
 
 This repository contain the two ways, a basic integration, and an integration with Aswat API.
 
-Basic integration demo: link
-Aswat integration demo: link
-
 To avoid conflict for user, and for the simplicity of the documentation, no external libraries are used, expect the one required for the verto lib (jquery).
 
 ### Basic Integration | How to use?
