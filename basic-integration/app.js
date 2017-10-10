@@ -75,7 +75,7 @@ function onDialogState(d) {
       break;
     case 'active':
       diallerInput.value = '';
-      document.getElementById('callStatus').innerHTML = 'In a Call with ' + currentCall.params.destination_number;
+      document.getElementById('callStatus').innerHTML = 'In a Call';
       document.getElementById('dialler').style.borderColor = 'red';
       document.getElementById('dialler').style.backgroundColor = 'rgba(255,0,0,0.05)';
       break;
