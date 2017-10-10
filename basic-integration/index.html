@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Demo of Aswat Verto Integration</title>
+    <link rel="stylesheet" href="app.css">
+  </head>
+
+  <body>
+    <div class="config">
+      <div class="config-row">
+        <label for="hostname">Hostname</label>
+        <input id="hostname" type="text">
+      </div>
+      <div class="config-row">
+        <label for="socketURL">Socket URL</label>
+        <input id="socketURL" type="text">
+      </div>
+      <div class="config-row">
+        <label for="position">Position</label>
+        <input id="position" type="text">
+      </div>
+      <div class="config-row">
+        <label for="password">Password</label>
+        <input id="password" type="text">
+      </div>
+      <div class="config-row">
+        <button class="config-action" onclick="connectToFreeswitch()">Connect</button>
+      </div>
+    </div>
+
+    <div class="dialler">
+      <div class="dialler-status">
+        Current status <br>
+        <span id="positionStatus">Not Connected</span> <br> <span id="callStatus">Not in a Call</span>
+      </div>
+      <div class="dialler-content" id="dialler">
+        <div class="dialler-row">
+          <input type="text" class="dialler-input" id="diallerInput">
+        </div>
+
+        <div class="dialler-row">
+          <span class="dialler-number" onclick="dial('1')">1</span>
+          <span class="dialler-number" onclick="dial('2')">2</span>
+          <span class="dialler-number" onclick="dial('3')">3</span>
+        </div>
+
+        <div class="dialler-row">
+          <span class="dialler-number" onclick="dial('4')">4</span>
+          <span class="dialler-number" onclick="dial('5')">5</span>
+          <span class="dialler-number" onclick="dial('6')">6</span>
+        </div>
+
+        <div class="dialler-row">
+          <span class="dialler-number" onclick="dial('7')">7</span>
+          <span class="dialler-number" onclick="dial('8')">8</span>
+          <span class="dialler-number" onclick="dial('9')">9</span>
+        </div>
+
+        <div class="dialler-row">
+          <span class="dialler-number" onclick="dial('*')">*</span>
+          <span class="dialler-number" onclick="dial('0')">0</span>
+          <span class="dialler-number" onclick="dial('#')">#</span>
+        </div>
+
+        <div class="dialler-row">
+          <button class="dialler-action" onclick="makeCall()">Call</button>
+          <button class="dialler-action" onclick="hangupCall()">Hangup</button>
+        </div>
+
+        <div class="dialler-row">
+          <button class="dialler-action" onclick="answerCall()">Answer</button>
+          <button class="dialler-action" onclick="transfer()">Transfer</button>
+        </div>
+
+        <div class="dialler-row">
+          <button class="dialler-action" onclick="mute()">Mute</button>
+          <button class="dialler-action" onclick="unmute()">Unmute</button>
+        </div>
+
+        <div class="dialler-row">
+          <button class="dialler-action" onclick="hold()">Hold</button>
+          <button class="dialler-action" onclick="unhold()">Unhold</button>
+        </div>
+      </div>
+
+      <video class="hide" id="positionDevice" autoplay="autoplay" style="width:100%; height:100%; object-fit:inherit;"></video>
+    </div>
+
+    <!-- Verto dependencies -->
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="../node_modules/jquery-json/dist/jquery.json.min.js"></script>
+
+    <!-- Verto library -->
+    <script src="../node_modules/verto/src/jquery.verto.js"></script>
+    <script src="../node_modules/verto/src/jquery.FSRTC.js"></script>
+    <script src="../node_modules/verto/src/jquery.jsonrpcclient.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

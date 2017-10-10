@@ -1,0 +1,24 @@
+{
+  "name": "verto-tuto",
+  "version": "1.0.0",
+  "description": "Demo of Aswat Verto Integration",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ASWATFZLLC/verto-tuto.git"
+  },
+  "author": "Anas Mammeri <anas.mammeri@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ASWATFZLLC/verto-tuto/issues"
+  },
+  "homepage": "https://github.com/ASWATFZLLC/verto-tuto#readme",
+  "dependencies": {
+    "jquery": "2.2.0",
+    "jquery-json": "2.5.1",
+    "verto": "0.0.2"
+  }
+}

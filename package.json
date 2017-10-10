@@ -1,0 +1,25 @@
+{
+  "name": "verto-tuto",
+  "version": "1.0.0",
+  "description": "A basic implementation of the verto lib",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ASWATFZLLC/verto-tuto.git"
+  },
+  "author": "CaptainYouz <captainyouz@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ASWATFZLLC/verto-tuto/issues"
+  },
+  "homepage": "https://github.com/ASWATFZLLC/verto-tuto#readme",
+  "dependencies": {
+    "crypto-js": "^3.1.9-1",
+    "jquery": "^3.2.1",
+    "jquery-json": "^2.6.0",
+    "verto": "0.0.2"
+  }
+}
