@@ -77,3 +77,61 @@ params: {access_token: YOUR_ACCESS_TOKEN}
 ---
 Response: List of Ziwo Numbers
 ```
+
+#### Attended Transfer
+The verto lib does not support Attended Transfer by default.
+
+To implement Attended Transfer, you'll need to do two steps:
+
+First, you'll need to override a part of verto lib's code.
+
+The code to implement is as follow:
+```
+    $.verto.dialog.prototype.attendedTransfer = function(call) {
+      // Change the sourceCall's callID (leg b) to
+      // current(destination) call's callID (leg b).
+      this.sendMethod('verto.modify', {
+        action: 'replace',
+        replaceCallID: call.params.callID,
+      });
+    };
+```
+Be sure to put this code _after_ having integrated verto-lib.
+
+Then, you'll need to do code and do **manually** the differents steps of an attended tranfser, meaning:
+- put on hold the current call
+- make a new call to the person you want to speak before transfer
+- then:
+  - if the person agrees to take the call, make the attended transfer (see code bellow)
+  - if the person does not want to take the call, hangup the new call and go back to the previous call
+
+
+###### Example
+Agent Smith is currently on call with customer X.
+
+Agent Smith want's to transfer the call to Manager James.
+Agent Smith go on the transfer view and place a new call to Manager James. When the call is starting, a new view is shown with two button on it: Attended Transfer and Hangup.
+
+
+If Manager James agreed to take the call, Agent Smith click on the Attended Transfer button and the attended transfer is made.
+
+If Manager James does not want to take the call, Agent Smith hangup the call with Manager James and the view goes back to the previous call with customer X.
+
+
+###### How to do the attended transfer in the code ?
+You first need to implement the code given above, then store the current call and make a new one.
+
+And when you will want to actually transfer the current call to the new one, you'll just need to do:
+
+```
+  currentCall.attendedTransfer(newCall);
+```
+
+With the example given above, the code will look like:
+```
+  // sourceCall: call between Agent Smith and Customer X
+  // destinationCall: call between Agent Smith and Manager James
+
+  // on clicking on the attended transfer button:
+  sourceCall.attendedTransfer(destinationCall);
+```
